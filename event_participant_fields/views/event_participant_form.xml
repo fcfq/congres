@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <!-- Ajout des nouveaux champs dans le formulaire -->
                 <xpath expr="//field[@name='email']" position="before">
-                    <field name="coopératives"/>
+                    <field name="coop"/>
                     <field name="allergies"/>
                 </xpath>
             </field>

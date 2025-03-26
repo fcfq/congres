@@ -3,5 +3,5 @@ from odoo import models, fields
 class EventRegistration(models.Model):
     _inherit = 'event.registration'
 
-    cooperative = fields.Char(string='Cooperative')
+    coop = fields.Char(string='coop')
     allergies = fields.Text(string='Allergies')
