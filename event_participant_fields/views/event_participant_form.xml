@@ -1,15 +1,21 @@
 <odoo>
     <data>
-        <!-- Extension de la vue d'enregistrement de l'événement -->
-        <record id="view_event_registration_form" model="ir.ui.view">
-            <field name="name">event.registration.form</field>
-            <field name="model">event.registration</field>
-            <field name="inherit_id" ref="event.view_event_registration_form"/>
+        <!-- Héritage de la vue de formulaire d'inscription -->
+        <record id="view_registration_form" model="ir.ui.view">
+            <field name="name">website.event.registration_form</field>
+            <field name="model">website.event.registration</field>
+            <field name="inherit_id" ref="website_event.registration_template"/>
             <field name="arch" type="xml">
-                <!-- Ajout des nouveaux champs dans le formulaire -->
-                <xpath expr="//field[@name='email']" position="before">
-                    <field name="coop"/>
-                    <field name="allergies"/>
+                <!-- Ajout des champs Coopérative et Allergies -->
+                <xpath expr="//div[@class='form-group o_input_group']" position="after">
+                    <div class="form-group">
+                        <label for="cooperative">Cooperative</label>
+                        <input type="text" name="cooperative" t-att-value="registration.cooperative" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="allergies">Allergies</label>
+                        <textarea name="allergies" class="form-control" t-att-value="registration.allergies"></textarea>
+                    </div>
                 </xpath>
             </field>
         </record>
